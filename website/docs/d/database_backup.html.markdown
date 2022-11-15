@@ -35,9 +35,9 @@ In addition to all argument references listed, you can access the following attr
 
 * `download_link` - (Optional, String) URI which is currently available for file downloading.
 
-* `is_downloadable` - (Optional, Boolean) Is this backup available to download?.
+* `is_downloadable` - (Optional, Boolean) *Is this backup available to download?*.
 
-* `is_restorable` - (Optional, Boolean) Can this backup be used to restore an instance?.
+* `is_restorable` - (Optional, Boolean) *Can this backup be used to restore an instance?*.
 
 * `status` - (Optional, String) The status of this backup.
   * Constraints: Allowable values are: `running`, `completed`, `failed`.

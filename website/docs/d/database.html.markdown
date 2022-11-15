@@ -8,7 +8,7 @@ description: |-
 
 # ibm_database
 
-Retrieve information about an existing [IBM Cloud Database instance](https://cloud.ibm.com/docs/cloud-databases).
+Retrieve information about an existing [IBM Cloud Databases instance](https://cloud.ibm.com/docs/cloud-databases).
 
 **Note**
 Configuration of an IBM Cloud Databases `data_source` requires that the `region` parameter is set for the IBM provider in the `provider.tf`. The region must be the same as the `location` that the IBM Cloud Databases instance is deployed into. If not specified, `us-south` is used by default. A `terraform refresh` of the `data_source` fails if the region and the location differ.
@@ -26,7 +26,7 @@ data "ibm_database" "database" {
 ## Argument reference
 Review the argument reference that you can specify for your data source. 
 
-- `name` - (Required, String) The name of the IBM Cloud Databases instance. IBM Cloud does not enforce that service names are unique and it is possible that duplicate service names exist. The first located service instance is used by  Terraform. The name must not include spaces.
+- `name` - (Required, String) The name of the IBM Cloud Databases instance. IBM Cloud does not enforce that service names are unique and it is possible that duplicate service names exist. The first located service instance is used by Terraform. The name must not include spaces.
 - `location` - (Optional, String) The location where the IBM Cloud Databases instance is deployed into.
 - `resource_group_id`- (Optional, String) The ID of the resource group where the IBM Cloud Databases instance is deployed into. The default is `default`.
 - `service` - (Optional, String) The service type of the instance. To retrieve this value, run `ibmcloud catalog service-marketplace` or `ibmcloud catalog search`.
@@ -34,15 +34,15 @@ Review the argument reference that you can specify for your data source.
 ## Attribute reference
 In addition to all argument references list, you can access the following attribute references after your data source is created. 
 
-- `adminuser` - (String)  The user ID of the default administration user for the database, such as `admin` or `root`.
-- `cert_file_path` - (String)  The absolute path to certificate PEM file.
-- `connectionstrings` - **Deprecated** - (List) List of connection strings by userid for the database - replaced by `ibm_database_connection` For information about how to use connection strings, see the [documentation](https://cloud.ibm.com/docs/databases-for-postgresql?topic=databases-for-postgresql-connection-strings). The results are returned in pairs of the userid and string: `connectionstrings.1.name = admin connectionstrings.1.string = postgres://admin:$PASSWORD@12345aa1-1111-1111-a1aa-a1aaa11aa1a1.a1a1a111a1a11a1a111a111a1a111a111.databases.appdomain.cloud:32554/ibmclouddb?sslmode=verify-full`.
+- `adminuser` - (String) The user ID of the default administration user for the database, such as `admin` or `root`.
+- `cert_file_path` - (String) The absolute path to certificate PEM file.
+- `connectionstrings` - **Deprecated** - (List) List of connection strings by user ID for the database - replaced by `ibm_database_connection`. For more information, see the [documentation](https://cloud.ibm.com/docs/databases-for-postgresql?topic=databases-for-postgresql-connection-strings). The results are returned in pairs of the user ID and string: `connectionstrings.1.name = admin connectionstrings.1.string = postgres://admin:$PASSWORD@12345aa1-1111-1111-a1aa-a1aaa11aa1a1.a1a1a111a1a11a1a111a111a1a111a111.databases.appdomain.cloud:32554/ibmclouddb?sslmode=verify-full`.
 - `configuration_schema` (String) Database Configuration Schema in JSON format.
 - `id` - (String) The CRN of the IBM Cloud Databases instance.
 - `guid` - (String) The unique identifier of the IBM Cloud Databases instance.
-- `plan` - (String)  The service plan of the IBM Cloud Databases instance.
-- `location` - (String)  The location where the IBM Cloud Databases instance is deployed into.
-- `status` - (String)  The status of the IBM Cloud Databases instance.
+- `plan` - (String) The service plan of the IBM Cloud Databases instance.
+- `location` - (String) The location where the IBM Cloud Databases instance is deployed into.
+- `status` - (String) The status of the IBM Cloud Databases instance.
 - `version` - (String) The database version.
 - `platform_options`-  (String) The CRN of key protect key.
    
@@ -51,10 +51,10 @@ In addition to all argument references list, you can access the following attrib
    - `disk_encryption_key_crn`-  (String) The CRN of disk encryption key.
    - `backup_encryption_key_crn`-  (String) The CRN of backup encryption key.
    
-- `auto_scaling` (List)Configure rules to allow your database to automatically increase its resources. Single block of autoscaling is allowed at once.
+- `auto_scaling` (List) Configure rules to allow your database to automatically increase its resources. Single block of autoscaling is allowed immediately.
 
   Nested scheme for `auto_scaling`:
-  - `cpu` (List)Autoscaling CPU.
+  - `cpu` (List) Autoscaling CPU.
   
      Nested scheme for `cpu`:
      - `rate_increase_percent`- (Integer) Auto scaling rate in increase percent.

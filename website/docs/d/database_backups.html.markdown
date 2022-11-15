@@ -34,8 +34,8 @@ Nested scheme for **backups**:
 	* `deployment_id` - (Optional, String) ID of the deployment this backup relates to.
 	* `download_link` - (Optional, String) URI which is currently available for file downloading.
 	* `backup_id` - (Optional, String) ID of this backup.
-	* `is_downloadable` - (Optional, Boolean) Is this backup available to download?.
-	* `is_restorable` - (Optional, Boolean) Can this backup be used to restore an instance?.
+	* `is_downloadable` - (Optional, Boolean) *Is this backup available to download?*.
+	* `is_restorable` - (Optional, Boolean) *Can this backup be used to restore an instance?*.
 	* `status` - (Optional, String) The status of this backup.
 	  * Constraints: Allowable values are: `running`, `completed`, `failed`.
 	* `type` - (Optional, String) The type of backup.
